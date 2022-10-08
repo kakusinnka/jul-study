@@ -1,0 +1,14 @@
+十月 08, 2022 10:19:15 上午 JULTest test004
+严重: severe
+十月 08, 2022 10:19:15 上午 JULTest test004
+警告: warning
+十月 08, 2022 10:19:15 上午 JULTest test004
+信息: info
+十月 08, 2022 10:19:15 上午 JULTest test004
+配置: config
+十月 08, 2022 10:19:15 上午 JULTest test004
+详细: fine
+十月 08, 2022 10:19:15 上午 JULTest test004
+较详细: finer
+十月 08, 2022 10:19:15 上午 JULTest test004
+非常详细: finest
