@@ -43,7 +43,7 @@ public class JULTest {
     }
 
     /*
-     * 指定Hander, Formatter
+     * 指定ConsoleHandler, Formatter
      */
     @Test
     public void test003() {
@@ -67,15 +67,17 @@ public class JULTest {
     }
 
     /*
-     * 指定Hander, Formatter
+     * 指定FileHandler, Formatter
      */
     @Test
     public void test004() throws SecurityException, IOException {
         Logger logger = Logger.getLogger("JULTest");
         logger.setUseParentHandlers(false);
-        FileHandler handler = new FileHandler("D:/workSpace/src/project/jul-study/log/log.txt");
+        // %homepath%java-log0.log
+        FileHandler handler = new FileHandler("%h/java-log%u.log");
         SimpleFormatter formatter = new SimpleFormatter();
         handler.setFormatter(formatter);
+        logger.addHandler(handler);
         logger.addHandler(handler);
 
         logger.setLevel(Level.ALL);
@@ -89,4 +91,32 @@ public class JULTest {
         logger.finer("finer");
         logger.finest("finest");
     }
+
+    /*
+     * 指定复数个Handler
+     */
+    @Test
+    public void test005() throws SecurityException, IOException {
+        Logger logger = Logger.getLogger("JULTest");
+        logger.setUseParentHandlers(false);
+        ConsoleHandler handler01 = new ConsoleHandler();
+        FileHandler handler02 = new FileHandler("%h/java-log%u.log");
+        SimpleFormatter formatter = new SimpleFormatter();
+        handler01.setFormatter(formatter);
+        logger.addHandler(handler01);
+        handler02.setFormatter(formatter);
+        logger.addHandler(handler02);
+
+        logger.setLevel(Level.ALL);
+        handler02.setLevel(Level.ALL);
+
+        logger.severe("severe");
+        logger.warning("warning");
+        logger.info("info");
+        logger.config("config");
+        logger.fine("fine");
+        logger.finer("finer");
+        logger.finest("finest");
+    }
+
 }
